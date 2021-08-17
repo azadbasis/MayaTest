@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_movie">
+
+    <fragment
+        android:id="@+id/navigation_movie"
+        android:name="com.azharul.maya.view.movie.MovieFragment"
+        android:label="@string/title_movie"
+        tools:layout="@layout/fragment_movie" >
+        <action
+            android:id="@+id/action_navigation_movie_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_tv"
+        android:name="com.azharul.maya.view.tv.TvFragment"
+        android:label="@string/title_tv"
+        tools:layout="@layout/fragment_tv" >
+
+        <action
+            android:id="@+id/action_navigation_tv_to_tvDetailFragment"
+            app:destination="@id/tvDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.azharul.maya.view.search.SearchFragment"
+        android:label="@string/title_search"
+        tools:layout="@layout/fragment_search" >
+
+        <action
+            android:id="@+id/action_navigation_search_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_navigation_search_to_tvDetailFragment"
+            app:destination="@id/tvDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetailFragment"
+        android:name="com.azharul.maya.view.movie.MovieDetailFragment"
+        android:label="Movie detail"
+        tools:layout="@layout/fragment_movie_detail" >
+
+        <argument
+            android:name="detail"
+            app:argType="com.azharul.maya.service.model.Detail" />
+        <action
+            android:id="@+id/action_movieDetailFragment_to_navigation_movie"
+            app:destination="@id/navigation_movie"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+
+        <action
+            android:id="@+id/action_movieDetailFragment_to_navigation_search"
+            app:destination="@id/navigation_search"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/tvDetailFragment"
+        android:name="com.azharul.maya.view.tv.TvDetailFragment"
+        android:label="TV Detail" >
+        <action
+            android:id="@+id/action_tvDetailFragment_to_navigation_tv"
+            app:destination="@id/navigation_tv"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_tvDetailFragment_to_navigation_search"
+            app:destination="@id/navigation_search"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+</navigation>
